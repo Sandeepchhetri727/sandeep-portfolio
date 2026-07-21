@@ -1,0 +1,112 @@
+@font-face {
+    font-family: titleFont1;
+    src: url(font/Comfortaa-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: titleFont;
+    src: url(font/Comfortaa-Bold.ttf);
+  }
+  @font-face {
+    font-family: bodyFont;
+    src: url(font/OpenSans-Regular.ttf);
+  }
+  @font-face {
+    font-family: bodyFont2;
+    src: url(font/OpenSans-Semibold.ttf);
+  }
+  .work-section{
+    background-color: white;
+    /* padding: 20px; */
+    border-radius: 20px;
+    padding-bottom: 50px;
+}
+
+.work-inner-section{
+    padding: 20px; 
+}
+.filter{
+    display: flex;
+    justify-content: flex-end;
+}
+.work-content{
+    margin-top: 30px;
+}
+.workcheck{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #ECF6FF;
+    width: 48%;
+    margin-right: 2%;
+
+}
+.workcheck1{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #FFEAEA;
+    width: 48%;
+    margin-left: 2%;
+}
+.workcheck2{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #FFEAEA;
+    width: 48%;
+    margin-right: 2%;
+
+}
+.workcheck3{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #ECF6FF;
+    width: 48%;
+    margin-left: 2%;
+}
+.image-sec{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+.imgadd img{
+    border-radius: 10px;
+}
+
+.port-copy{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+.tool-used{
+    font-size: 12px;
+    color: #494949;   
+    font-family: bodyFont;
+}
+.project-name{
+    font-size: 20px;
+    color: #494949;   
+    font-family: bodyFont;
+}
+@media screen and (max-width: 768px) {
+    .workcheck{
+        width: 100% !important;
+        margin: 20px 0 0 0;
+    }
+    .workcheck1{
+        width: 100% !important;
+        margin: 20px 0 0 0;
+    }
+    .workcheck2{
+        width: 100% !important;
+        margin: 20px 0 0 0;
+    }
+    .workcheck3{
+        width: 100% !important;
+        margin: 20px 0 0 0;
+    }
+}
+.worklink{
+    text-decoration: none;
+}

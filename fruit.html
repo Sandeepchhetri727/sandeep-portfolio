@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sandeep Chhetri</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="resume.css">
+    <link rel="stylesheet" type="text/css" href="work.css">
+    <link rel="stylesheet" type="text/css" href="contact.css">
+    <script src="menu.js"></script>
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="fruit.js?1659936162920"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("9A73B6373A29404AA526238BF91B1802");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.fruit();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<style>
+	.anime{
+		margin-top: 40px;
+        display: flex;
+        justify-content: center;
+	}
+	</style>
+</head>
+
+<body onload="init();" style="margin:0px;">
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="img-candi">
+                        <img class="master-img" src=".\images\sandeep.png" />
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="master">Sandeep Chhetri</div>
+                        <div class="profile">
+                            <div class="profile-one">UI/UX Design</div>
+                            <div class="line"></div>
+                            <div class="profile-two">Motion Design</div>
+                        </div>
+                        <div class="social-media">
+                            <a class="inactive"><div class="social facebook"><img src=".\images\facebook.svg" /></div></a>
+                            <a href="https://www.linkedin.com/in/sandeep-chhetri-973285190/" target="_blank"><div class="social linkedin"><img src=".\images\linkedin.svg" /></div></a>
+                            <a class="inactive"> <div class="social twitter"><img src=".\images\twitter.svg" /></div></a>
+                        </div>
+                        <div class="personal-details">
+                            <div class="contact">
+                                <div class="cont-icon">
+                                    <img class="cont-iocn-det" src=".\images\phone.svg">
+                                </div>
+                                <div class="per-details">
+                                    <div class="per-cat">phone</div>
+                                    <div class="main-cat"><b>+91-9650427775</b></div>
+                                </div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="contact mt-3">
+                                <div class="cont-icon">
+                                    <img class="cont-iocn-det ex-img" src=".\images\email.svg">
+                                </div>
+                                <div class="per-details">
+                                    <div class="per-cat">Email</div>
+                                    <div class="main-cat"><b>sandeepchhetri7@gmail.com</b></div>
+                                </div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="contact mt-3">
+                                <div class="cont-icon">
+                                    <img class="cont-iocn-det ex-img" src=".\images\map.svg">
+                                </div>
+                                <div class="per-details">
+                                    <div class="per-cat">Location</div>
+                                    <div class="main-cat"><b>Namchi, Sikkim</b></div>
+                                </div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="contact mt-3">
+                                <div class="cont-icon">
+                                    <img class="cont-iocn-det ex-img" src=".\images\calendar.svg">
+                                </div>
+                                <div class="per-details">
+                                    <div class="per-cat">Birthday</div>
+                                    <div class="main-cat"><b>7th October</b></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a href="resume.pdf" download target="_blank" style="text-decoration: none;">
+                        <div class="downloadcv">
+                            <img src=".\images\download.svg" />
+                            <div class="download">Download</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-7 col-sm-12">
+                    <div class="contact-section">
+                        <div class="contact-inner-section">
+                            <div class="about-title">
+                                <div class="about">Fruit Juice Banner</div>
+                                <div class="linetitle"></div>
+                            </div>
+                            <div class="anime">
+                                <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:640px; height:360px">
+                                    <canvas id="canvas" width="640" height="360" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+                                    <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:360px; position: absolute; left: 0px; top: 0px; display: block;">
+                                    </div>
+                                </div>
+                                </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-12">
+                    <div class="menu-custom">
+                        <a href="index.html" target="_self" class="abouttab">
+                            <img src=".\images\about.svg" class="aboutimg" />
+                            <div class="aboutcopy">About</div>
+                        </a>
+                        <a href="resume.html" target="_self" class="abouttab mt-4">
+                            <img src=".\images\resume.svg" class="aboutimg" />
+                            <div class="aboutcopy">Resume</div>
+                        </a>
+                        <a href="work.html" target="_self" class="abouttab mt-4">
+                            <img src=".\images\work.svg" class="aboutimg" />
+                            <div class="aboutcopy">Work</div>
+                        </a>
+                        <a href="contact.html" target="_self" class="abouttab mt-4">
+                            <img src=".\images\contact.svg" class="aboutimg" />
+                            <div class="aboutcopy">Contact</div>
+                        </a>
+                    </div>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
